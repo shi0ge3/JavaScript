@@ -29,4 +29,15 @@ increment(); // (); を追記すると関数処理が実行される。
 increment(); // 値が１つずつ増えていく関数。
 increment();
 
-// 動的な関数の生成(クロージャーを使った実装)=状況に応じて関数が変わる。
+// 動的な関数の生成(クロージャーを使った実装)=同じ関数でも、引数で渡される値に応じて処理結果がそれぞれ変わる。
+function addNumberFactory(num) {
+    function addNumber(value) {
+        return num + value;
+    }
+    return addNumber;
+}
+
+const add5 = addNumberFactory(5);
+const add10 = addNumberFactory(10);
+const result = add10(10);
+console.log(result);
