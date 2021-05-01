@@ -12,7 +12,7 @@ let a = 0;
 printTypeAndValue(a);
 
 // let b = '1' + a：結果 10 暗黙的型変換でa(0)が文字列型に変換されて、連結される。
-let b = parseInt('1') + a; //parseIntで引数の文字列をint(整数)に変換。
+let b = parseInt('1') + a; //parseIntで引数の文字列をint(整数)に変換。=明示的型変換。
 
 printTypeAndValue(b);
 
