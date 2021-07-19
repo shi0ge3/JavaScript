@@ -1,7 +1,8 @@
 // thisの挙動の違い。
 window.name = 'John';
 
-// 無名関数の場合
+// オブジェクト(無名)関数の場合
+// thisは呼び出し元のオブジェクト
 const person = {
     name: 'Tom',
     hello: function() {
@@ -11,6 +12,7 @@ const person = {
 person.hello();
 
 // アロー関数の場合
+// thisはグローバルオブジェクトを参照している。
 const arrow_person = {
     name: 'Bob',
     hello: () => {
@@ -18,3 +20,5 @@ const arrow_person = {
     }
 }
 arrow_person.hello();
+
+const a = () => console.log('Bye ' + this.name);
