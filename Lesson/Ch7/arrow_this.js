@@ -13,12 +13,27 @@ person.hello();
 
 // アロー関数の場合
 // thisはグローバルオブジェクトを参照している。
+const a = () => console.log('Bye ' + this.name);
+
 const arrow_person = {
     name: 'Bob',
-    hello: () => {
-        console.log('Hello ' + this.name);
+    // hello: () => {
+    //     console.log('Hello ' + this.name);
+    // }
+    // es6からは省略可能=無名関数で定義されている。
+    hello() {
+        console.log(`Hello ${this.name}`);
+        // この場合のレキシカルスコープはこのオブジェクトのBob
+        const a = () => console.log('Bye ' + this.name);
+        a();
     }
 }
 arrow_person.hello();
 
-const a = () => console.log('Bye ' + this.name);
+// レキシカルスコープはWindowsオブジェクトを指す。
+function b() {
+    const a = () => console.log('Bye ' + this.name);
+    a();
+}
+
+b();
