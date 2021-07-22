@@ -11,9 +11,14 @@ setTimeout(function() {
 }, 1000);
 
 // 問題２
-setTimeout(person.hello(), 1000);
+setTimeout(function() {
+    const hello = person.hello();
+    alert(hello);
+}, 1000);
 
 // 問題３
-// hello:理由 heyはまだ実行に移っていない為。
+// hello:シャローコピー(値コピー)なので'hey'とは異なるので上書きされていない。
 
 // 問題４
+const calc = calcFactory(10, console.log);
+const calc2 = calcFactory(10, alert);
