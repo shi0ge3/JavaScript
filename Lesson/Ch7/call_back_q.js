@@ -7,5 +7,6 @@ const person = {
 console.log(person.hello());
 
 // 問題２
+setTimeout(person.hello(), 1000);
 
 // 問題３
