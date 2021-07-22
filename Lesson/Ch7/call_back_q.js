@@ -10,3 +10,4 @@ console.log(person.hello());
 setTimeout(person.hello(), 1000);
 
 // 問題３
+// hello:理由 heyはまだ実行に移っていない為。
