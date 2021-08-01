@@ -14,3 +14,6 @@ const sun = new Person('Sun', 20);
 // Personのプロトタイプとbob or tomのインスタンスオブジェクトの__proto__は同じ。
 bob.hello();
 tom.hello();
+
+// prototypeオブジェクトを使用することで、インスタンスオブジェクトの関数の参照先が同じになる。
+// メモリ使用効率がよくなる効果がある。
