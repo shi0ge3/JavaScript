@@ -2,15 +2,16 @@
 function F(a, b) {
     this.a = a;
     this.b = b;
-    return {};
+    // return {};
 }
 
 // prototypeがある場合。
 F.prototype.c = function() {}
 
-// new演算子の様な関数
 function newOpe(C, ...args) {
-    console.log(args);
+    // 空のオブジェクト生成。
+    const _this = Object.create(C.prototype);
+    console.log(_this);
 }
 
 const instance = newOpe(F, 1, 2);
