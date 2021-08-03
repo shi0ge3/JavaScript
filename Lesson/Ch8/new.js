@@ -11,7 +11,10 @@ F.prototype.c = function() {}
 function newOpe(C, ...args) {
     // 空のオブジェクト生成。
     const _this = Object.create(C.prototype);
-    console.log(_this);
+    const result = C.apply(_this, args);
+    console.log(result, _this);
+
+    return _this;
 }
 
 const instance = newOpe(F, 1, 2);
