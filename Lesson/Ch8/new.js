@@ -2,7 +2,7 @@
 function F(a, b) {
     this.a = a;
     this.b = b;
-    // return {};
+    return {};
 }
 
 // prototypeがある場合。
@@ -12,7 +12,10 @@ function newOpe(C, ...args) {
     // 空のオブジェクト生成。
     const _this = Object.create(C.prototype);
     const result = C.apply(_this, args);
-    console.log(result, _this);
+    // console.log(result, _this);
+    if(typeof result === "object" && result !== null) {
+        return result;
+    }
 
     return _this;
 }
