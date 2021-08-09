@@ -25,3 +25,6 @@ const obj = new function() {
 
 const fn3 = new Function('return;');
 console.log(obj, fn3);
+const fn4 = new Function('this.a = 0;');
+const obj3 = new fn4();
+console.log(obj, obj3);
