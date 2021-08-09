@@ -21,3 +21,7 @@ function Person(name, age) {
 
   const bob = new Person('Bob', 18);
   bob.hello();
+
+  // hasOwnProperty関数：オブジェクトが持っているプロパティを真偽値で返す。真：プロパティがある。偽：プロパティがない。
+  const result = bob.hasOwnProperty('name');
+  console.log(result);
