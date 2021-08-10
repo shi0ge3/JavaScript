@@ -8,5 +8,7 @@ Object.prototype.hello = function() {
 }
 
 const bob = new Person('Bob', 18);
-const result = bob.hasOwnProperty('name');
+const result = bob.hasOwnProperty('hello');
 console.log(result);
+// in関数は、プロトタイプチェーンを遡って探す。
+console.log('name' in bob);
