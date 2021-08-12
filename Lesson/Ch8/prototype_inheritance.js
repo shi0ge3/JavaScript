@@ -17,6 +17,11 @@ function Person(name, age) {
   // プロトタイプ継承の例
   Japanese.prototype = Object.create(Person.prototype);
 
+  // 継承したプロトタイプの上書き=プロトタイプチェーンで自身のオブジェクトに近いプロトタイプを使用するため上書きができる。
+  Japanese.prototype.hello = function() {
+    console.log('konnnichiwa ' + this.name);
+  }
+
   const taro = new Japanese('Taro', 23);
   console.log(taro);
-  taro.hello(); // Personのhello関数が呼び出し可能。
+  taro.hello();
