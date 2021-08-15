@@ -22,6 +22,12 @@ function Person(name, age) {
     console.log('konnnichiwa ' + this.name);
   }
 
+  // 継承したプロトタイプのみの関数を作成。
+  Japanese.prototype.bye = function() {
+    console.log('Sayounara ' + this.name);
+  }
+
   const taro = new Japanese('Taro', 23);
   console.log(taro);
   taro.hello();
+  taro.bye();
