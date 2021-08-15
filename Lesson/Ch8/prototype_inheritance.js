@@ -11,8 +11,9 @@ function Person(name, age) {
   }
 
   // 継承の例
-  function Japanese(name, age) {
+  function Japanese(name, age, gender) {
     Person.call(this, name, age);
+    this.gender = gender; // 継承したプロトタイプのみ使用できるプロパティ
   }
   // プロトタイプ継承の例
   Japanese.prototype = Object.create(Person.prototype);
@@ -27,7 +28,7 @@ function Person(name, age) {
     console.log('Sayounara ' + this.name);
   }
 
-  const taro = new Japanese('Taro', 23);
+  const taro = new Japanese('Taro', 23, 'Male');
   console.log(taro);
   taro.hello();
   taro.bye();
