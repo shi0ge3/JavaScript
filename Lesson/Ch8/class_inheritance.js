@@ -50,3 +50,5 @@ class Person {
   // }
 
   const taro = new Japanese('Taro', 23, 'Male');
+  console.log(taro);
+  taro.bye();
