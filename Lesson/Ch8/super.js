@@ -1,6 +1,7 @@
 // super:継承元の関数を呼び出すためのキーワード。
 
 class Person {
+    //クラスのコンストラクターは関数コンテキスト内で行われている。
     constructor(name, age) {
         this.name = name;
         this.age = age;
@@ -13,8 +14,9 @@ class Person {
 
 class Japanese extends Person {
     constructor(name, age, gender) {
-        super(name, age);
         this.gender = gender;
+        super(name, age); // superの実行前にthisを使用するとエラー
+        // this.gender = gender;
     }
 
     hello() {
