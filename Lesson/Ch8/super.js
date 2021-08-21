@@ -20,6 +20,7 @@ class Japanese extends Person {
     }
 
     hello() {
+        console.log('Konnichiwa ' + this.name); // 関数内のthisはコンストラクターと違いエラーにならない。
         super.hello(); // 関数でsuperを使用すると親クラスの関数を呼び出せる。
         console.log('Konnichiwa ' + this.name);
     }
@@ -33,15 +34,19 @@ const taro = new Japanese('Taro', 23, 'Male');
 console.log(taro);
 taro.hello();
 
-// const american = {
-//     hello() {
-//         console.log('hello ' + this.name);
-//     }
-// }
+// 一部例外でオブジェクトでは使用可能。(クラスのコンストラクターで使用できない仕様と比較)
+const american = {
+    hello() {
+        console.log('hello ' + this.name);
+    }
+}
 
-// const bob = {
-//     name: 'Bob',
-//     hello() {
-//         super.hello();
-//     }
-// }
+const bob = {
+    name: 'Bob',
+    hello() {
+        console.log('hello ' + this.name);
+    }
+}
+
+Object.setPrototypeOf(bob, american); // americanオブジェクをbobのプロパティに追加している。
+bob.hello();
