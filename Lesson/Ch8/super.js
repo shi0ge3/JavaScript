@@ -43,8 +43,9 @@ const american = {
 
 const bob = {
     name: 'Bob',
-    hello() {
-        console.log('hello ' + this.name);
+    hello() { // 下記のObject .setPrototypeOfの処理の影響でここをコメントアウトしてもプロトタイプチェーンでamericanオブジェクまで遡る。
+        super.hello();
+        // console.log('hello ' + this.name);
     }
 }
 
