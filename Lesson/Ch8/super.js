@@ -14,13 +14,13 @@ class Person {
 
 class Japanese extends Person {
     constructor(name, age, gender) {
+        // this.gender = gender; // superの実行前にthisを使用するとエラー
+        super(name, age);
         this.gender = gender;
-        super(name, age); // superの実行前にthisを使用するとエラー
-        // this.gender = gender;
     }
 
     hello() {
-        super.hello();
+        super.hello(); // 関数でsuperを使用すると親クラスの関数を呼び出せる。
         console.log('Konnichiwa ' + this.name);
     }
 
@@ -31,7 +31,7 @@ class Japanese extends Person {
 
 const taro = new Japanese('Taro', 23, 'Male');
 console.log(taro);
-taro.bye();
+taro.hello();
 
 // const american = {
 //     hello() {
