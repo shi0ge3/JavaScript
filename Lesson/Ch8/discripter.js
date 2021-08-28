@@ -7,8 +7,15 @@ const obj = {};
 Object.defineProperty(obj, 'prop', {
     // ディスクリプターに値を入れると他のディスクリプターはfalseになる。
     // falseは変更が不可。
-    value: 0
+    configurable: true, // trueで他のオブジェクトでもプロパティ変更が可能になる。
+    value: 0,
+    writable: true
 })// オブジェクトにdescriptorを入れる。
+
+// 他のオブジェクトでプロパティを変更することはconfigurableがfalseだと不可。
+Object.defineProperty(obj, 'prop', {
+    enumerable: true
+})
 
 obj.prop = 1;
 // 通常だとエラーにならずに、変更が成功したと気づけない。
