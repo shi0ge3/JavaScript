@@ -1,11 +1,19 @@
 // ディスクリプター:下記、４つのプロパティーのこと。
 // value:値/configurabel:設定変更可能性/enumerable:列挙可能性/writable:値の変更可能性
 // const obj = {prop: 0};
+'use strict';
 const obj = {};
 
 Object.defineProperty(obj, 'prop', {
-    value: 0 // ディスクリプターに値を入れると他のディスクリプターはfalseになる。
+    // ディスクリプターに値を入れると他のディスクリプターはfalseになる。
+    // falseは変更が不可。
+    value: 0
 })// オブジェクトにdescriptorを入れる。
+
+obj.prop = 1;
+// 通常だとエラーにならずに、変更が成功したと気づけない。
+// ES5から'use strict';を追記してErrorを発生させる。
+console.log(obj.prop);
 
 const descriptor = Object.getOwnPropertyDescriptor(obj, 'prop');
 
